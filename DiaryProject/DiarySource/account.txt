@@ -1,0 +1,64 @@
+0
+계정 유형
+계정 아이디
+계정 패스워드
+계정 권한
+계정 등급
+계정 전화번호
+계정 주소
+
+
+id:admin
+pass:admin
+type:관리자
+authority:관리자
+call:000-000
+adress:왕십리역
+id:test1
+pass:test1
+type:일반
+authority:일반
+call:111-1111
+adress:서울시 1번지
+id:test2
+pass:test2
+type:일반
+authority:일반
+call:222-2222
+adress:서울시 2번지
+id:test3
+pass:test3
+type:일반
+authority:일반
+call:333-3333
+adress:서울시 3번지
+id:test4
+pass:test4
+type:일반
+authority:일반
+call:4444-4444
+adress:왕십리역 4번출구
+id:test5
+pass:test5
+type:일반
+authority:일반
+call:5555-5555
+adress:왕십리역 5번출구
+id:skwir
+pass:skwir12
+type:일반
+authority:일반
+call:1212121212
+adress:ejkekjej
+id:test6
+pass:test6
+type:일반
+authority:일반
+call:6666-6666
+adress:왕십리역 6번출구
+id:test7
+pass:test7
+type:일반
+authority:일반
+call:7777-7777
+adress:왕십리역 7번출구
