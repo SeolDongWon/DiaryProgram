@@ -2,7 +2,6 @@ package DiaryPackage;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -212,30 +211,30 @@ public class ServerEx {
 		// 계정정보 변경(미완성)
 		String changeInput = null;
 		boolean loopFlag = false;
-//		while (!loopFlag) {
-		switch (selectMenu) {
-		case "0":
-			loopFlag = true;
-			break;
-		case "1":
-			writeToCT.write("새로운 패스워드 입력(미완성) " + "\n");
-			writeToCT.flush();
-			changeInput = readFromCT.readLine();
-			break;
-		case "2":
-			writeToCT.write("새로운 연락처 입력(미완성)" + "\n");
-			writeToCT.flush();
-			changeInput = readFromCT.readLine();
-			break;
-		case "3":
-			writeToCT.write("새로운 주소 입력(미완성) " + "\n");
-			writeToCT.flush();
-			changeInput = readFromCT.readLine();
-			break;
-		default:
+		while (!loopFlag) {
+			switch (selectMenu) {
+			case "0":
+				loopFlag = true;
+				break;
+			case "1":
+				writeToCT.write("새로운 패스워드 입력(미완성) " + "\n");
+				writeToCT.flush();
+				changeInput = readFromCT.readLine();
+				break;
+			case "2":
+				writeToCT.write("새로운 연락처 입력(미완성)" + "\n");
+				writeToCT.flush();
+				changeInput = readFromCT.readLine();
+				break;
+			case "3":
+				writeToCT.write("새로운 주소 입력(미완성) " + "\n");
+				writeToCT.flush();
+				changeInput = readFromCT.readLine();
+				break;
+			default:
+			}
+			modifyAccount(account.getId(), selectMenu, changeInput);
 		}
-		modifyAccount(account.getId(), selectMenu, changeInput);
-//		}
 	}
 
 	private static void modifyAccount(String accountID, String selectMenu, String changeInput) throws Exception {
@@ -424,8 +423,12 @@ public class ServerEx {
 				break;
 			}
 		}
+		
+		
+		
 		String[] readAccount = new String[6];
 		if (idFlag) { // 로그인을 허가하면 해당 아이디와 비밀번호를 가진 계정의 정보를 문자열배열에 저장한다
+			giveAccount(inputId);
 			readAccount[0] = inputId;
 			readAccount[1] = inputPass;
 			readAccount[2] = buffRead.readLine().split(":")[1];
@@ -439,6 +442,7 @@ public class ServerEx {
 			writeToCT.write("아이디 혹은 비밀번호가 잘못되었습니다" + "::" + "(진행:엔터)" + "\n");
 			writeToCT.flush();
 			readFromCT.readLine();
+			buffRead.close();
 			return null; // 아무것도 반환하지 않고 끝난다
 		}
 		buffRead.close();
@@ -446,6 +450,11 @@ public class ServerEx {
 		// 계정정보가 담긴 문자열로 계정객체를 하나 만들어서 반환한다
 		return new Account(readAccount[0], readAccount[1], readAccount[2], readAccount[3], readAccount[4],
 				readAccount[5]);
+	}
+
+	private static void giveAccount(String inputId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private static void logWrite(String accountId, int selectMenu) throws Exception {
